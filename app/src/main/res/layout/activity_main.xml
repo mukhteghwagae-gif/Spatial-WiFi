@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" android:background="?attr/colorPrimary"
+            app:title="@string/app_name" app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <!-- Wi-Fi HUD Card -->
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+                app:cardElevation="4dp" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Connected Network" android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="?attr/colorPrimary" />
+                    <TextView android:id="@+id/tvSsid" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_marginTop="6dp"
+                        android:textAppearance="?attr/textAppearanceHeadlineSmall" tools:text="MyHomeWifi_5G" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginTop="6dp">
+                        <TextView android:id="@+id/tvRssi" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:textAppearance="?attr/textAppearanceBodyLarge" tools:text="-55 dBm" />
+                        <TextView android:id="@+id/tvFreq" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:textAppearance="?attr/textAppearanceBodyLarge" tools:text="5180 MHz" />
+                        <TextView android:id="@+id/tvLinkSpeed" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:textAppearance="?attr/textAppearanceBodyLarge" tools:text="300 Mbps" />
+                    </LinearLayout>
+                    <ProgressBar android:id="@+id/signalBar"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent" android:layout_height="8dp"
+                        android:layout_marginTop="8dp" android:max="100" android:progress="60" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginTop="8dp">
+                        <TextView android:id="@+id/tvQualityLabel" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:textAppearance="?attr/textAppearanceBodyMedium" tools:text="Good" />
+                        <TextView android:id="@+id/tvScanCount" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:textColor="?attr/colorSecondary"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:textAlignment="textEnd" tools:text="42 scans" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Legend Card -->
+            <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardElevation="2dp" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Signal Legend" android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textColor="?attr/colorPrimary" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="🟢 Excellent  > -50 dBm    (tall pillar)\n🟡 Good        -50 to -70   (medium)\n🟠 Fair          -70 to -80   (short)\n🔴 Poor         &lt; -80 dBm   (minimal)"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Primary action -->
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnStartMapping"
+                android:layout_width="match_parent" android:layout_height="56dp"
+                android:layout_marginBottom="10dp" android:text="🗺  Start AR Mapping"
+                android:textSize="16sp" />
+
+            <!-- Secondary actions grid -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnViewHeatmap"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    android:text="2-D Heatmap" android:textSize="13sp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnNetworks"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    android:text="Networks" android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="10dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnChannels"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    android:text="Channels" android:textSize="13sp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMeshOptimizer"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    android:text="Mesh Optimizer" android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="16dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnAnalytics"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    android:text="Analytics" android:textSize="13sp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnExportCsv"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    android:text="Export CSV" android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

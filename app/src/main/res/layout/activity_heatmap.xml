@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f172a">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" android:background="?attr/colorPrimary"
+            app:title="Signal Heatmap" app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Session selector -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:padding="8dp" android:background="#1e293b">
+            <Spinner android:id="@+id/spinnerSession" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:layout_marginEnd="8dp"
+                android:popupBackground="#1e293b" />
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnOpenAnalytics"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Analytics" android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Main scatter chart -->
+        <com.github.mikephil.charting.charts.ScatterChart
+            android:id="@+id/scatterChart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:visibility="gone" />
+
+        <TextView android:id="@+id/tvNoData" android:layout_width="match_parent"
+            android:layout_height="0dp" android:layout_weight="1"
+            android:gravity="center" android:text="No scan data yet.\nStart AR Mapping first."
+            android:textColor="#64748b" android:textSize="18sp" android:textAlignment="center"
+            android:visibility="gone" />
+
+        <!-- Stats strip -->
+        <LinearLayout android:id="@+id/statsStrip" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="horizontal"
+            android:background="#1e293b" android:padding="8dp" android:visibility="gone">
+            <TextView android:id="@+id/tvScanTotal" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:textColor="#94a3b8" android:textSize="11sp" android:gravity="center"
+                tools:text="42 pts" />
+            <TextView android:id="@+id/tvAvgRssi" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1.5"
+                android:textSize="11sp" android:gravity="center" android:textStyle="bold"
+                tools:text="-62 dBm avg" />
+            <TextView android:id="@+id/tvBestRssi" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:textColor="#4CAF50" android:textSize="11sp" android:gravity="center"
+                tools:text="Best: -44" />
+            <TextView android:id="@+id/tvWorstRssi" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1"
+                android:textColor="#F44336" android:textSize="11sp" android:gravity="center"
+                tools:text="Worst: -89" />
+            <TextView android:id="@+id/tvCoverageHint" android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_weight="1.5"
+                android:textColor="#38BDF8" android:textSize="11sp" android:gravity="center"
+                tools:text="78% above -70" />
+        </LinearLayout>
+
+        <!-- Sparkline -->
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+            android:layout_height="80dp" android:layout_margin="8dp"
+            app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/sparklineChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Buttons -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:padding="8dp">
+            <com.google.android.material.button.MaterialButton android:id="@+id/btnExportSession"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:text="Export Session CSV" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

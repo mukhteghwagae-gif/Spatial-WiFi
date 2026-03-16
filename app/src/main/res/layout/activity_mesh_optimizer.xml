@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f172a">
+
+    <com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize" android:background="?attr/colorPrimary" app:title="Mesh Optimizer" app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView android:id="@+id/tvNoData" android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:gravity="center"
+            android:text="No scan data yet.\nStart AR Mapping first." android:textColor="#64748b"
+            android:textSize="18sp" android:textAlignment="center" android:visibility="gone" />
+
+        <com.wifi.visualizer.ui.mesh.MeshMapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:cardBackgroundColor="#1e293b" app:cardCornerRadius="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Grade" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvGrade" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#4CAF50" android:textSize="16sp" android:textStyle="bold" android:text="—" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Coverage" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvCoverage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#e2e8f0" android:textSize="16sp" android:textStyle="bold" android:text="—" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dead Area" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvDeadArea" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FF9800" android:textSize="14sp" android:textStyle="bold" android:text="—" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="AP Placement Recommendations" android:textColor="#38BDF8"
+                    android:textSize="13sp" android:textStyle="bold" android:layout_marginTop="12dp" />
+                <TextView android:id="@+id/tvRecommendations" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:textColor="#e2e8f0" android:textSize="13sp"
+                    android:layout_marginTop="6dp" android:lineSpacingExtra="4dp"
+                    android:text="Collecting data..." />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

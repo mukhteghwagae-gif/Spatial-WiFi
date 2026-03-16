@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">Wi-Fi Visualizer AR</string>
+    <string name="app_name_short">WiFi AR</string>
+
+    <!-- Menu items -->
+    <string name="action_delete_all">Delete All Data</string>
+    <string name="action_about">About</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_export">Export</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_get_started">Get Started</string>
+
+    <!-- AR Mapping -->
+    <string name="ar_stop">Stop</string>
+    <string name="ar_clear">Clear</string>
+    <string name="ar_hide_mesh">Hide Mesh</string>
+    <string name="ar_show_mesh">Show Mesh</string>
+    <string name="ar_hide_arrow">Hide Arrow</string>
+    <string name="ar_show_arrow">Show Arrow</string>
+    <string name="ar_analyze">Analyze</string>
+    <string name="ar_dead_zone_warning">⚠ Dead Zone — Weak Signal Here</string>
+    <string name="ar_scanning">Scanning…</string>
+    <string name="ar_pts_fmt">%1$d pts</string>
+    <string name="ar_coverage_fmt">Coverage: %1$d%%</string>
+    <string name="ar_coverage_unknown">Coverage: —</string>
+    <string name="ar_not_available_title">AR Not Available</string>
+    <string name="ar_not_available_msg">ARCore is not supported on this device.\n\nYou can still use the 2-D heatmap and analytics from collected data.</string>
+    <string name="ar_open_heatmap">Open Heatmap</string>
+    <string name="ar_collect_points">Collect 3+ points first</string>
+    <string name="ar_camera_unavailable">Camera unavailable</string>
+
+    <!-- Main screen -->
+    <string name="btn_start_mapping">🗺  Start AR Mapping</string>
+    <string name="btn_heatmap">2-D Heatmap</string>
+    <string name="btn_networks">Networks</string>
+    <string name="btn_channels">Channels</string>
+    <string name="btn_mesh_optimizer">Mesh Optimizer</string>
+    <string name="btn_analytics">Analytics</string>
+    <string name="btn_export_csv">Export CSV</string>
+    <string name="no_wifi">No Wi-Fi</string>
+    <string name="scan_count_fmt">%1$d scans stored</string>
+    <string name="connected_network">Connected Network</string>
+    <string name="signal_legend">Signal Legend</string>
+    <string name="legend_text">🟢 Excellent  > -50 dBm    (tall pillar)\n🟡 Good        -50 to -70   (medium)\n🟠 Fair          -70 to -80   (short)\n🔴 Poor         &lt; -80 dBm   (minimal)</string>
+
+    <!-- Heatmap -->
+    <string name="heatmap_title">Signal Heatmap</string>
+    <string name="heatmap_no_data">No scan data yet.\nStart AR Mapping first.</string>
+    <string name="btn_open_analytics">Analytics</string>
+    <string name="btn_export_session">Export Session CSV</string>
+    <string name="all_sessions">All Sessions</string>
+    <string name="session_fmt">Session %1$d (%2$s)</string>
+
+    <!-- Analytics -->
+    <string name="analytics_title">Analytics Dashboard</string>
+    <string name="coverage_score">Coverage Score</string>
+    <string name="avg_rssi">Avg RSSI</string>
+    <string name="best_rssi">Best RSSI</string>
+    <string name="worst_rssi">Worst RSSI</string>
+    <string name="stability">Stability</string>
+    <string name="dead_zones">Dead Zones</string>
+    <string name="trend">Trend</string>
+    <string name="rssi_over_time">RSSI Over Time</string>
+    <string name="signal_distribution">Signal Distribution</string>
+    <string name="signal_by_direction">Signal by Direction</string>
+    <string name="ai_path_loss_model">AI Path-Loss Model</string>
+    <string name="ai_insights">AI Insights</string>
+    <string name="export">Export</string>
+    <string name="export_failed_fmt">Export failed: %1$s</string>
+
+    <!-- Channels -->
+    <string name="channels_title">Channel Analyzer</string>
+    <string name="networks_visible">Networks visible</string>
+    <string name="congestion">Congestion</string>
+    <string name="ghz_24_channels">2.4 GHz Channels</string>
+    <string name="ghz_5_channels">5 GHz Channels</string>
+    <string name="best_24_calculating">Best 2.4 GHz: calculating…</string>
+    <string name="best_5_calculating">Best 5 GHz: calculating…</string>
+
+    <!-- Mesh optimizer -->
+    <string name="mesh_title">Mesh Optimizer</string>
+    <string name="mesh_no_data">No scan data yet.\nStart AR Mapping first.</string>
+    <string name="ap_placement_recommendations">AP Placement Recommendations</string>
+    <string name="collecting_data">Collecting data…</string>
+
+    <!-- Network list -->
+    <string name="networks_title">Nearby Networks</string>
+    <string name="scanning_hint">Scanning…</string>
+    <string name="networks_found_fmt">%1$d networks found</string>
+
+    <!-- Permissions -->
+    <string name="permissions_required_title">Permissions Required</string>
+    <string name="permissions_required_msg">Camera, Location, and Nearby Devices permissions are all required for full functionality.</string>
+    <string name="grant">Grant</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+
+    <!-- Delete dialog -->
+    <string name="delete_all_title">Delete All Data</string>
+    <string name="delete_all_msg">This permanently erases all scan records and sessions. Continue?</string>
+    <string name="delete">Delete</string>
+
+    <!-- About dialog -->
+    <string name="about_title">Wi-Fi Visualizer AR v2.0</string>
+    <string name="about_msg">Advanced AR Wi-Fi signal mapper with AI-powered analysis.\n\nFeatures:\n• ARCore 3-D pillar heatmap\n• IDW-interpolated ground mesh\n• Signal-to-router direction arrow\n• IEEE 802.11 path-loss modelling\n• Dead zone detection\n• Mesh node placement AI\n• Channel congestion analyzer\n• Export: CSV / JSON / KML / HTML\n\n🟢 &gt; -50 dBm  Excellent\n🟡 -50 to -70  Good\n🟠 -70 to -80  Fair\n🔴 &lt; -80 dBm  Poor</string>
+
+    <!-- Export / share -->
+    <string name="share_csv">Share CSV</string>
+    <string name="exported_fmt">Exported: %1$s</string>
+    <string name="export_failed">Export failed</string>
+
+    <!-- Content descriptions (accessibility) -->
+    <string name="cd_wifi_signal">Wi-Fi signal strength indicator</string>
+    <string name="cd_ar_surface">AR camera view</string>
+    <string name="cd_network_icon">Network icon</string>
+</resources>

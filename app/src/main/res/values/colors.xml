@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ── Adaptive Icon background colour ──────────────────────────────── -->
+    <!-- Referenced by mipmap-anydpi-v26/ic_launcher.xml -->
+    <color name="md_theme_primaryContainer">#003060</color>
+
+    <!-- ── Brand palette ─────────────────────────────────────────────────── -->
+    <color name="brand_primary">#0284C7</color>       <!-- sky-600 -->
+    <color name="brand_primary_dark">#0369A1</color>  <!-- sky-700 -->
+    <color name="brand_accent">#38BDF8</color>         <!-- sky-400 -->
+    <color name="brand_on_primary">#FFFFFF</color>
+
+    <!-- ── Surface colours (dark theme) ──────────────────────────────────── -->
+    <color name="surface_dark_1">#0F172A</color>   <!-- slate-900 – page background -->
+    <color name="surface_dark_2">#1E293B</color>   <!-- slate-800 – card background -->
+    <color name="surface_dark_3">#334155</color>   <!-- slate-700 – elevated card -->
+
+    <!-- ── Text colours ──────────────────────────────────────────────────── -->
+    <color name="text_primary">#E2E8F0</color>     <!-- slate-200 -->
+    <color name="text_secondary">#94A3B8</color>   <!-- slate-400 -->
+    <color name="text_tertiary">#64748B</color>    <!-- slate-500 -->
+
+    <!-- ── Signal quality colours ────────────────────────────────────────── -->
+    <color name="signal_excellent">#4CAF50</color>  <!-- green  >  -50 dBm -->
+    <color name="signal_good">#FFC107</color>       <!-- yellow -50 to -70 -->
+    <color name="signal_fair">#FF9800</color>       <!-- orange -70 to -80 -->
+    <color name="signal_poor">#F44336</color>       <!-- red    <  -80 dBm -->
+
+    <!-- ── Status / semantic colours ─────────────────────────────────────── -->
+    <color name="color_error">#EF4444</color>
+    <color name="color_warning">#F59E0B</color>
+    <color name="color_info">#38BDF8</color>
+    <color name="color_success">#22C55E</color>
+
+    <!-- ── Overlay / dead zone ───────────────────────────────────────────── -->
+    <color name="dead_zone_overlay">#80F44336</color>   <!-- 50% red -->
+    <color name="hud_background">#BB000000</color>      <!-- 73% black -->
+    <color name="bottom_bar_background">#99000000</color> <!-- 60% black -->
+</resources>

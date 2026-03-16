@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="12dp"
+        android:background="#BB000000"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:minWidth="160dp">
+        <TextView android:id="@+id/tvHudSsid" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/white" android:textSize="13sp" android:textStyle="bold" tools:text="MyNetwork_5G" />
+        <TextView android:id="@+id/tvHudRssi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/white" android:textSize="20sp" android:textStyle="bold" tools:text="-62 dBm" />
+        <TextView android:id="@+id/tvHudQuality" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textStyle="bold" tools:text="Good" />
+        <TextView android:id="@+id/tvHudFreq" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#BBBBBB" android:textSize="10sp" tools:text="5180 MHz · 300 Mbps" />
+        <ProgressBar android:id="@+id/signalStrengthBar" style="@style/Widget.AppCompat.ProgressBar.Horizontal" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="4dp" android:max="100" android:progress="60" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="12dp"
+        android:background="#BB000000"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView android:id="@+id/tvPillarCount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/white" android:textSize="12sp" tools:text="0 pts" />
+        <TextView android:id="@+id/tvCoverage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#38BDF8" android:textSize="12sp" tools:text="Coverage: --" />
+        <TextView android:id="@+id/tvInsight" android:layout_width="120dp" android:layout_height="wrap_content" android:textColor="#94A3B8" android:textSize="10sp" tools:text="Scanning..." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deadZoneAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="80dp"
+        android:background="#CCF44336"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:visibility="gone">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="WARNING: Dead Zone — Weak Signal Here" android:textColor="@android:color/white" android:textStyle="bold" android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#99000000"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnStopMapping" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1" android:layout_margin="3dp" android:text="Stop" android:textSize="11sp" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnClearPillars" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1" android:layout_margin="3dp" android:text="Clear" android:textSize="11sp" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnToggleMesh" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1.2" android:layout_margin="3dp" android:text="Hide Mesh" android:textSize="11sp" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnToggleArrow" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1.2" android:layout_margin="3dp" android:text="Hide Arrow" android:textSize="11sp" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnAnalyze" android:layout_width="0dp" android:layout_height="42dp" android:layout_weight="1.1" android:layout_margin="3dp" android:text="Analyze" android:textSize="11sp" />
+    </LinearLayout>
+</FrameLayout>

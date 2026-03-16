@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Exclude the database from cloud backup to protect user privacy -->
+    <exclude domain="database" path="wifi_visualizer.db" />
+</full-backup-content>

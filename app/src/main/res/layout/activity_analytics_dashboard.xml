@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f172a">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="Analytics Dashboard"
+            app:titleTextColor="@android:color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Coverage gauge -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="#1e293b"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Coverage Score" android:textColor="#38BDF8"
+                        android:textAppearance="?attr/textAppearanceTitleMedium" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:layout_marginTop="8dp">
+                        <TextView android:id="@+id/tvCoverageScore" android:layout_width="0dp"
+                            android:layout_height="wrap_content" android:layout_weight="1"
+                            android:textSize="48sp" android:textStyle="bold" android:textColor="#4CAF50"
+                            tools:text="82%" />
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="2" android:orientation="vertical">
+                            <ProgressBar android:id="@+id/coverageGauge"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="match_parent" android:layout_height="16dp"
+                                android:max="100" android:layout_marginTop="12dp" />
+                            <TextView android:id="@+id/tvCoverageGrade" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="#94a3b8"
+                                android:layout_marginTop="4dp" tools:text="B — Good" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Stats grid -->
+            <androidx.gridlayout.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:columnCount="3"
+                app:rowCount="2">
+
+                <!-- Each stat card inline -->
+            </androidx.gridlayout.widget.GridLayout>
+
+            <!-- Compact stats row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+                <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="4dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Avg RSSI" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvAvgRssi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#e2e8f0" android:textSize="16sp" android:textStyle="bold" tools:text="-65 dBm" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="4dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Best RSSI" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvBestRssi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#4CAF50" android:textSize="16sp" android:textStyle="bold" tools:text="-42 dBm" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="4dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Worst RSSI" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvWorstRssi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#F44336" android:textSize="16sp" android:textStyle="bold" tools:text="-88 dBm" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+                <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="4dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Stability" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvStability" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#e2e8f0" android:textSize="16sp" android:textStyle="bold" tools:text="78%" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="4dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dead Zones" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvDeadZones" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#FF9800" android:textSize="14sp" android:textStyle="bold" tools:text="2 zones" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="4dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="8dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Trend" android:textColor="#64748b" android:textSize="10sp" />
+                        <TextView android:id="@+id/tvTrend" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#38BDF8" android:textSize="14sp" android:textStyle="bold" tools:text="Stable" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- RSSI over time chart -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RSSI Over Time" android:textColor="#38BDF8" android:textAppearance="?attr/textAppearanceTitleSmall" />
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chartRssiOverTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Distribution chart -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Signal Distribution" android:textColor="#38BDF8" android:textAppearance="?attr/textAppearanceTitleSmall" />
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/chartDistribution"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Direction table -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Signal by Direction" android:textColor="#38BDF8" android:textAppearance="?attr/textAppearanceTitleSmall" />
+                    <TextView android:id="@+id/tvDirectionTable" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:fontFamily="monospace" android:textColor="#e2e8f0" android:textSize="12sp"
+                        android:layout_marginTop="8dp" tools:text="N: -60 dBm ▓▓▓▓▓▓▓\nE: -75 dBm ▓▓▓" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Path loss model -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI Path-Loss Model" android:textColor="#38BDF8" android:textAppearance="?attr/textAppearanceTitleSmall" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Path-Loss n" android:textColor="#64748b" android:textSize="10sp" />
+                            <TextView android:id="@+id/tvPathLossN" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#e2e8f0" android:textSize="20sp" android:textStyle="bold" tools:text="2.8" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Samples" android:textColor="#64748b" android:textSize="10sp" />
+                            <TextView android:id="@+id/tvSamples" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#e2e8f0" android:textSize="20sp" android:textStyle="bold" tools:text="47" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <TextView android:id="@+id/tvModelInfo" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#94a3b8" android:textSize="12sp" android:fontFamily="monospace"
+                        android:layout_marginTop="8dp" tools:text="Environment: Home (drywall)" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Anomalies -->
+            <TextView android:id="@+id/tvAnomalies" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="#33F59E0B" android:padding="10dp" android:textColor="#F59E0B"
+                android:textStyle="bold" android:layout_marginBottom="12dp"
+                android:visibility="gone" tools:text="2 anomalies detected" />
+
+            <!-- AI Insights -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="AI Insights" android:textColor="#38BDF8" android:textAppearance="?attr/textAppearanceTitleSmall" />
+                    <TextView android:id="@+id/tvInsights" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:textColor="#e2e8f0" android:textSize="13sp" android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="2dp" tools:text="Insights appear here" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Export buttons -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" app:cardBackgroundColor="#1e293b" app:cardCornerRadius="12dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Export" android:textColor="#38BDF8" android:textAppearance="?attr/textAppearanceTitleSmall" />
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                        <com.google.android.material.button.MaterialButton android:id="@+id/btnExportCsv" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="3dp" android:text="CSV" android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/btnExportJson" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="3dp" android:text="JSON" android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/btnExportKml" style="@style/Widget.Material3.Button.TonalButton" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="3dp" android:text="KML" android:textSize="12sp" />
+                        <com.google.android.material.button.MaterialButton android:id="@+id/btnExportHtml" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_margin="3dp" android:text="HTML" android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
